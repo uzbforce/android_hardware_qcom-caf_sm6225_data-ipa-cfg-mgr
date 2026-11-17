@@ -1,5 +1,11 @@
 soong_namespace {
     imports: [
-        "hardware/qcom-caf/sm6225"
+        "hardware/qcom-caf/sm6225",
+        // Android 17 moved qti_kernel_headers from
+        // hardware/google/pixel/kernel_headers into hardware/qcom-caf/common,
+        // which declares no soong_namespace, so the module is in the root
+        // namespace and visible without an import. The old namespace no longer
+        // exists; importing it stops the build with "namespace
+        // hardware/google/pixel/kernel_headers does not exist".
     ],
 }
